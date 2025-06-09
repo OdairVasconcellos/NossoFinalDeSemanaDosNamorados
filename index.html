@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Semana do Amor 💖</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background: #fff0f5;
+      margin: 0;
+      padding: 2rem;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: start;
+    }
+    h1 {
+      text-align: center;
+      color: #d63384;
+    }
+    .card {
+      background: white;
+      border-radius: 12px;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+      padding: 1.5rem;
+      margin: 1rem 0;
+      max-width: 600px;
+      width: 100%;
+    }
+    .locked {
+      opacity: 0.5;
+      pointer-events: none;
+    }
+    .date {
+      font-weight: bold;
+      color: #6c757d;
+    }
+    .message {
+      white-space: pre-wrap;
+      margin-top: 1rem;
+    }
+  </style>
+</head>
+<body>
+  <h1>Mensagens da Semana do Amor 💌</h1>
+  <div id="messages"></div>
+
+  <script>
+    const messages = [
+      {
+        day: 0,
+        title: 'Domingo – Introdução',
+        text: `Prezada Renata,
+
+Aqui é a secretária pessoal encarregada de coordenar os preparativos do seu Dia dos Namorados.  
+Nos próximos dias, você receberá comunicados exclusivos com detalhes sobre pequenas surpresas e experiências preparadas especialmente para você.  
+
+Peço que fique atenta às mensagens e esteja preparada para sorrir bastante.  
+O cronograma está incrível.  
+Nos vemos amanhã.
+
+Atenciosamente,  
+Secretária do Amor 💌`
+      },
+      {
+        day: 1,
+        title: 'Segunda-feira',
+        text: `Prezada Renata,
+
+Dando início ao cronograma especial do final de semana, informo que a atividade de hoje envolve uma sessão personalizada de entretenimento.  
+Você acaba de ganhar um vale para uma noite de filme romântico ou desenho, de acordo com sua preferência.
+
+Aproveite sem moderação. Popcorn opcional. Carinho garantido.
+
+Atenciosamente,  
+Secretária do Amor 🎬`
+      },
+      {
+        day: 2,
+        title: 'Terça-feira',
+        text: `Prezada Renata,
+
+O departamento de bem-estar e relaxamento informa que também será dia de aliviar o estresse acumulado.  
+Você acaba de receber um vale para uma massagem relaxante, válida para uso no final de semana com seu massagista exclusivo.
+
+Aproveite o toque especial que só você merece.
+
+Com carinho,  
+Secretária do Amor 💆‍♀️`
+      },
+      {
+        day: 3,
+        title: 'Quarta-feira',
+        text: `Prezada Renata,
+
+O setor de demonstrações de afeto comunica que o clima está favorável a beijos e carícias.  
+Você acaba de receber um vale de carinho, utilizável para recarregar as energias ou acabar com elas.
+
+Recomenda-se aplicar várias vezes ao dia. Não tem contraindicação.
+
+Atenciosamente,  
+Secretária do Amor 💋`
+      },
+      {
+        day: 4,
+        title: 'Quinta-feira',
+        text: `Prezada Renata,
+
+Hoje o mistério entra em cena.  
+Você acaba de receber um vale surpresa... O conteúdo será revelado no momento certo, como toda boa surpresa deve ser.
+
+Prepare-se para sorrir sem aviso prévio.
+
+Em sigilo e entusiasmo,  
+Secretária do Amor 🎁`
+      },
+      {
+        day: 5,
+        title: 'Sexta-feira – Mensagem Final',
+        text: `Prezada Renata,
+
+Chegamos ao fim da nossa jornada de antecipações.  
+Durante a semana, você recebeu pequenos lembretes do quanto é especial — mas ainda falta a parte principal.
+
+Amanhã, prepare-se para viver um momento criado especialmente para você.  
+A agenda do dia está reservada para celebração, carinho, e tudo que seu coração merece.
+
+Em nome de toda a equipe (e do coração do seu namorado),  
+Foi um prazer organizar esta semana.
+
+Atenciosamente,  
+Secretária do Amor ❤️`
+      }
+    ];
+
+    const today = new Date();
+    const todayDay = today.getDay();
+
+    const container = document.getElementById('messages');
+    messages.forEach((msg) => {
+      const card = document.createElement('div');
+      card.classList.add('card');
+      if (msg.day > todayDay) card.classList.add('locked');
+      card.innerHTML = `<div class="date">${msg.title}</div>
+                        <div class="message">${msg.day <= todayDay ? msg.text : '🔒 Esta mensagem estará disponível no dia certo. Segure a ansiedade... Volte mais tarde!'}</div>`;
+      container.appendChild(card);
+    });
+  </script>
+</body>
+</html>
